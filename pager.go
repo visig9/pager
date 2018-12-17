@@ -93,7 +93,7 @@ func (p *Pager) getStartEnd(pageNumber int) (start, end int) {
 }
 
 // PageCount return the total available page.
-func (p Pager) PageCount() int {
+func (p *Pager) PageCount() int {
 	size := reflect.ValueOf(p.Items).Len()
 	count := size / p.PageSize
 	if size%p.PageSize >= 1 {
@@ -106,7 +106,7 @@ func (p Pager) PageCount() int {
 // Page export one page of the internal data with paging metadata.
 //
 // The pageNumber is 1 based. The given value can over PageCount safely.
-func (p Pager) Page(pageNumber int) Page {
+func (p *Pager) Page(pageNumber int) Page {
 	start, end := p.getStartEnd(pageNumber)
 	v := reflect.ValueOf(p.Items)
 
@@ -133,7 +133,7 @@ func (p Pager) Page(pageNumber int) Page {
 // RawPage export one page of the internal data without metadata
 //
 // The pageNumber is 1 based. The given value can over PageCount safely.
-func (p Pager) RawPage(pageNumber int) []interface{} {
+func (p *Pager) RawPage(pageNumber int) []interface{} {
 	start, end := p.getStartEnd(pageNumber)
 	v := reflect.ValueOf(p.Items)
 
