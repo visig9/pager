@@ -34,7 +34,7 @@ Check `godoc` for more API.
 ## Download
 
 ```bash
-go get gitlab.com/visig/pager
+go get github.com/visig9/pager
 ```
 
 
